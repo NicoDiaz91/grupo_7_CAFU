@@ -34,3 +34,8 @@ https://www.blissworld.com/
 https://www.skullcandy.com/
 https://www.elburgues.com/
 https://www.decibullz.com/
+
+SOBRE NOSOTROS:
+ Soy Ignacio Burgos. Tengo 27 años soy nuevo en el mundo de la informatica  me dedico a la gastronomia  y estoy buscnado cambiar de rubro y meterme cada vez mas en el mundo de la programacion.
+
+
