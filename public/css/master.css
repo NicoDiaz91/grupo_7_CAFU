@@ -1,0 +1,95 @@
+main{
+    background-color: black;
+}
+
+.btn{
+    opacity: 0.7;
+    background-color: dimgray;
+}
+.banner{
+    visibility: hidden;
+    position: absolute;
+}
+.banner img{
+    margin-top: 5vh;
+    width: 50%;
+    height: 35vh;
+}
+.carousel-inner{
+    height: 30vh;
+}
+.carousel-item{
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    height: 20vh;
+    
+}
+.carousel-content{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+}
+
+.row{
+    margin: auto;
+}
+.card{
+    padding: 0;
+    height: 30vh;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: center;
+    
+}
+.boton{
+    position: relative;
+    top: 40%;
+    text-align: center;
+}
+.superliga{
+    background-image: url('../img/camisetas-superliga-2019-20-h1-1021x550.jpg');
+    
+}
+.premier{
+    background-image: url('../img/faeedb4769b2.jpg');  
+    
+}
+.seriea{
+    background-image: url('../img/9a17333952c4.jpg'); 
+    
+}
+.laliga{
+    background-image: url('../img/bcd433d8eb8f.jpg');
+    
+}
+.bundesliga{
+    background-image: url('../img/ac81e2f3445f.jpg');
+    
+}
+.mundiales{
+    background-image: url('../img/nike-2020-national-team-kits-1.jpg');
+}
+
+
+@media (min-width: 768px ){
+    .banner{
+        visibility: visible;
+        position: relative;
+        }
+    .carousel{
+        height: 40vh;
+    }
+    .carousel-inner{
+        height: 40vh;
+    }
+    .carousel-content{
+        top: 70%;
+    }   
+}

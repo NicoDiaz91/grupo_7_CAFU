@@ -1,0 +1,9 @@
+main{
+    background-color: darkgrey;
+}
+
+.card{
+    background-color: darkgray;
+    margin: 5%;
+    padding: 5%;
+}
