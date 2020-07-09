@@ -1,0 +1,43 @@
+h1{
+    font-family: 'Archivo', sans-serif;
+    font-weight: bold; 
+}
+h5 h6{
+    font-family: 'Archivo', sans-serif;
+}
+main div.card-body{
+    margin: 0 3%;
+}
+#title{
+    color: gray;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: black solid 0.25px;
+    outline: none;
+    resize: none;
+}
+div label{
+    font-family: 'Archivo', sans-serif;
+}
+.alto{
+    margin: 1rem;
+    width: 90vw;
+}
+.ubicacion{
+    justify-content: space-between;
+}
+.talles{
+    padding-left: 1vh;
+}
+.btn-sm{
+    margin-bottom: 1rem;
+}
+.confirmar{
+    border-radius: 0;
+}
+a.social{
+    color: honeydew;
+    padding-left: 1rem;
+    
+}

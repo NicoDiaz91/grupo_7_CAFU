@@ -1,0 +1,27 @@
+body{
+    background-color: gray;
+}
+
+.row{
+    margin: 0;
+    padding: 0;
+}
+div img{
+    padding: 2%;
+    width: 50%;
+}
+.info{
+    padding: 2%;
+    width: 50%;
+}
+.carrito{
+    padding: 0;
+    border: 2px solid black;
+}
+
+@media (min-width: 768px){
+    .carrito{
+        position: absolute;
+        top: 0;
+    }
+}

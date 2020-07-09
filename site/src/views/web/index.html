@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/master.css">
 </head>
@@ -43,13 +44,16 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/productCart">
+              <a class="nav-link" href="/bag">
                 <svg class="bi bi-bag" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
                   <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
                 </svg>
               </a>
             </li>
+            <li class="nav-item active align-self-lg-start">
+              <a class="nav-link" href="/admin">ADD<span class="sr-only">(current)</span></a>
+          </li>
           </ul>
         </div>
     </nav>
@@ -90,32 +94,32 @@
     <section class="row container-fluid">
       <article class="card text-center superliga col-12 col-md-6 col-lg-4">
         <div class="card-body">
-          <a href="#" class="btn btn-dark boton">Superliga</a>
+          <a href="/productos" class="btn btn-dark boton">Superliga</a>
         </div>
       </article>
       <article class="card text-center premier col-12 col-md-6 col-lg-4">  
         <div class="card-body">
-          <a href="#" class="btn btn-dark boton">Premier</a>
+          <a href="/productos" class="btn btn-dark boton">Premier</a>
         </div>
       </article>
       <article class="card text-center seriea col-12 col-md-6 col-lg-4">    
         <div class="card-body">
-          <a href="#" class="btn btn-dark boton">Serie A</a>
+          <a href="/productos" class="btn btn-dark boton">Serie A</a>
       </div>
       </article>
       <article class="card text-center laliga col-12 col-md-6 col-lg-4">  
         <div class="card-body">
-          <a href="#" class="btn btn-dark boton">La Liga</a>
+          <a href="/productos" class="btn btn-dark boton">La Liga</a>
         </div>
       </article>
       <article class="card text-center bundesliga col-12 col-md-6 col-lg-4">  
         <div class="card-body">
-          <a href="#" class="btn btn-dark boton">Bundesliga</a>
+          <a href="/productos" class="btn btn-dark boton">Bundesliga</a>
         </div>
       </article>
       <article class="card text-center mundiales col-12 col-md-6 col-lg-4">  
         <div class="card-body">
-          <a href="#" class="btn btn-dark boton">Mundiales</a>
+          <a href="/productos" class="btn btn-dark boton">Mundiales</a>
         </div>
       </article>
       </section>
@@ -127,18 +131,18 @@
       </article>
       <div class="d-flex justify-content-center pt-5">
             <div class="mb-5 flex-center">
-              <a class="social">
+              <a href="https://facebook.com" class="social text-light bg-dark">
                 <i><ion-icon size="large" name="logo-facebook"></ion-icon></i>
               </a>
-              <a class="social">
+              <a href="https://twitter.com" class="social text-light bg-dark">
                 <ion-icon size="large" name="logo-twitter"></ion-icon>
               </a>
-              <a class="social">
+              <a href="https://pinterest.com" class="social text-light bg-dark">
                 <i><ion-icon size="large" name="logo-pinterest"></ion-icon></i>
               </a>
-              <a class="social">
+              <a href="https://youtube.com" class="social text-light bg-dark">
                 <ion-icon size="large" name="logo-youtube"></ion-icon></i>
-              </a><a class="social">
+              </a><a href="https://whatsapp.com" class="social text-light bg-dark">
                 <i><ion-icon size="large" name="logo-whatsapp"></ion-icon></i>
               </a>
             </div>
@@ -148,9 +152,10 @@
       </div>
     </footer>
      
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-341.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js" ></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
   <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>
 </html> 

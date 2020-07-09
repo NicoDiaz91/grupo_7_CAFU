@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+}   
+
+.containter{
+    display: flex;
+    background-color: blueviolet;
+    height: 60vh;
+    flex-wrap: wrap;
+    }
+
+
+#imagen{
+    background-color: grey;
+    text-align: center;
+    
+    }
+
+
+textarea {
+    width: 100%;
+}
+.talle{
+    margin-left: 30%;
+}

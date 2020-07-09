@@ -6,4 +6,7 @@ module.exports = {
     index: function (req, res){
         res.sendFile(path.resolve(__dirname, '../views/productos/productos.html'))
     },
+    detail: function (req, res){
+        res.sendFile(path.resolve(__dirname, '../views/productos/productDetail.html'))
+    }
 }
