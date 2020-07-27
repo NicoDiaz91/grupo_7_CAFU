@@ -1,6 +1,6 @@
 # grupo_7_commerce
 
-CAFU
+## CAFU
 Desarrollo de imagen.
 
 CAFU es una empresa dedicada a la venta de indumentaria deportiva (fútbol), que apunta a los fanáticos acérrimos del futbol. 
@@ -43,3 +43,8 @@ SOBRE NOSOTROS:
  Mi nombre es Diaz Nicolas y soy empleado administrativo de una firma de insumos medicos y hospitalarios, tengo 28 años y vivo con mi pareja, trato de independizarme de forma laboral siguiendo la rama de la informatica ya que dispongo de conocimiento sobre Hardware y redes.
 
 Soy Maximiliano del Caño, 33 años y dos hijos. Actualmente, soy genrente de una distribuidora de alimentos. También soy diseñador gráfico y quiero aprender a programar para sumar herramientas.
+
+Tablero Trello:
+
+https://trello.com/b/saRykMoh/e-commerce
+

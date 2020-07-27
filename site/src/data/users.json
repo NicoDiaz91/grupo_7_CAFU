@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "firstName": "Nicolas",
+        "lastName": "Diaz",
+        "email": "nicodiaz@asd.com",
+        "password": "asdasd",
+        "category": "admin",
+        "image": "asd.jpg"
+    },
+    {
+        "id": 2,
+        "firstName": "Maximiliano"  ,
+        "lastName": "Del Caño",
+        "email": "maxidelcaño@asd.com",
+        "password": "asdasd",
+        "category": "admin",
+        "image": "asd.jpg"
+    },
+    {
+        "id": 3,
+        "firstName": "Ignacio",
+        "lastName": "Burgos",
+        "email": "ignacioburgos@asd.com",
+        "password": "asdasd",
+        "category": "admin",
+        "image": "asd.jpg"
+    },
+    {
+        "id": 4,
+        "firstName": "Juan",
+        "lastName": "P",
+        "email": "juanp@asd.com",
+        "password": "asdasd",
+        "category": "user" ,
+        "image": "user.jpg"
+    }
+]

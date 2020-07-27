@@ -1,0 +1,271 @@
+[
+    {
+        "id": 1,
+        "title": "Boca Juniors",
+        "league": "Argentina",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "boca.jpg"
+    },
+    {
+        "id": 2,
+        "title": "River Plate",
+        "league": "Argentina",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "riber.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Racing Club",
+        "league": "Argentina",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "racing.jpg"
+    },
+    {
+        "id": 4,
+        "title": "CA Independiente",
+        "league": "Argentina",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "independiente.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Velez Sarsfield",
+        "league": "Argentina",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "velez.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Liverpool FC",
+        "league": "Inglaterra",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "Liverpool.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Manchester United",
+        "league": "Inglaterra",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "manred.jpg"
+    },
+    {
+        "id": 8,
+        "title": "Manchester City",
+        "league": "Inglaterra",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "mancity.jpg"
+    },
+    {
+        "id": 9,
+        "title": "Chelsea FC",
+        "league": "Inglaterra",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "chelsea.jpg"
+    },
+    {
+        "id": 10,
+        "title": "Tottenham FC",
+        "league": "Inglaterra",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "tottenham.jpg"
+    },
+    {
+        "id": 11,
+        "title": "Juventus FC",
+        "league": "Italia",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "Juventus.jpg"
+    },
+    {
+        "id": 12,
+        "title": "Milan FC",
+        "league": "Italia",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "milan.jpg"
+    },
+    {
+        "id": 13,
+        "title": "Inter de Milan",
+        "league": "Italia",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "inter.jpg"
+    },
+    {
+        "id": 14,
+        "title": "Napoli FC",
+        "league": "Italia",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "napoli.jpg"
+    },
+    {
+        "id": 15,
+        "title": "Roma FC",
+        "league": "Italia",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "roma.jpg"
+    },
+    {
+        "id": 16,
+        "title": "Barcelona FC",
+        "league": "España",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "Barcelona.jpg"
+    },
+    {
+        "id": 17,
+        "title": "Real Madrid",
+        "league": "España",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "realmadrid.jpg"
+    },
+    {
+        "id": 18,
+        "title": "Villarreal FC",
+        "league": "España",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "villarreal.jpg"
+    },
+    {
+        "id": 19,
+        "title": "Atletico de Madrid",
+        "league": "España",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "atleticomadrid.jpg"
+    },
+    {
+        "id": 20,
+        "title": "Sevilla FC",
+        "league": "España",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "sevilla.jpg"
+    },
+    {
+        "id": 21,
+        "title": "Bayern Munchen",
+        "league": "Alemaña",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "Bayern.jpg"
+    },
+    {
+        "id": 22,
+        "title": "Borussia Dortmund",
+        "league": "Alemaña",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "Bayern.jpg"
+    },
+    {
+        "id": 23,
+        "title": "Leipzig FC",
+        "league": "Alemaña",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "leipzig.jpg"
+    },
+    {
+        "id": 24,
+        "title": "Bayern Leverkusen",
+        "league": "Alemaña",
+        "descripcion": "Camiseta titular usada en la temporada 2018/2019",
+        "precio": 1300,
+        "imagen": "leverkusen.jpg"
+    },
+    {
+        "id": 25,
+        "title": "Borussia Monchengladbach",
+        "league": "Alemaña",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "monchen.jpg"
+    },
+    {
+        "id": 26,
+        "title": "Argentina",
+        "league": "Mundiales",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "Argentina.jpg"
+    },
+    {
+        "id": 27,
+        "title": "Francia",
+        "league": "Mundiales",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "francia.jpg"
+    },
+    {
+        "id": 28,
+        "title": "Brasil",
+        "league": "Mundiales",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "brasil.jpg"
+    },
+    {
+        "id": 29,
+        "title": "Belgica",
+        "league": "Mundiales",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "belgica.jpg"
+    },
+    {
+        "id": 30,
+        "title": "Holanda",
+        "league": "Mundiales",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
+        "price": 1500,
+        "size": "M",
+        "image": "holanda.jpg"
+    }
+]

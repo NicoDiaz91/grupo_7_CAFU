@@ -3,7 +3,10 @@ h1{
     font-weight: bold; 
 }
 h5 h6{
+    text-align: center;
     font-family: 'Archivo', sans-serif;
+    
+    
 }
 main div.card-body{
     margin: 0 3%;

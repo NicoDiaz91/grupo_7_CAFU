@@ -9,55 +9,12 @@
     <link rel="stylesheet" href="css/productAdd.css">
 </head>
 <body>
+  <main>
    <!--Navbar-->
-    <nav class=" navbar navbar-expand-lg navbar-dark bg-dark bd-highlight">
-        <a class="navbar-brand " href="/">
-            <img src="img/logo_cafu.png" width="100" height="50" class="d-inline-block align-top" alt="" loading="lazy">
-          </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav d-flex mr-auto">
-            <li class="nav-item active align-self-lg-start">
-              <a class="nav-link" href="/productos">SHOP <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item align-self-lg-end">
-              <a class="nav-link" href="/login">
-                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
-                  <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                  <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-                </svg>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                  <svg class="bi bi-search" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                  </svg>
-              </a>
-              <div class="collapse" id="collapseExample">
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Qué camiseta buscás?">
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/bag">
-                <svg class="bi bi-bag" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
-                  <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
-                </svg>
-              </a>
-            </li>
-            <li class="nav-item active align-self-lg-start">
-                <a class="nav-link" href="/admin">ADD<span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-        </div>
-    </nav>
+   <%- include('../partials/navbar.ejs') %>
     <!--Ingreso de producto-->
-    <main>
+    
+
       <section class="row">
         <article class="col-12">
           <h1 class="text-center mt-3">INGRESO</h1>
@@ -65,13 +22,13 @@
         <article class="col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-center" >
           <!--Titulo-->
           <div class="card shadow p-3 mb-3 bg-white bg-light alto">
-            <h5 class="card-title">TÍTULO</h5>
+            <h5 class="card-title text-center">TÍTULO</h5>
             <textarea name="title" class="bg-light" id="title" cols="35" rows="1">Coloque aquí el título</textarea>
             <small class="d-flex justify-content-end pr-3 text-secondary">0/50</small>
           </div>
           <!--Categoría-->
            <div class="card shadow p-3 mb-3 bg-white bg-light alto">
-            <h5 class="card-title align-self-start">CATEGORÍA</h5>
+            <h5 class="card-title text-center">CATEGORÍA</h5>
             <div class="d-flex justify-content-center flex-wrap">
               <button type="button" class="btn btn-secondary btn-md m-2">Nueva Temporada</button>
               <button type="button" class="btn btn-secondary btn-md m-2">Colección</button>
@@ -81,8 +38,8 @@
           </div>
           <!--Datos-->
           <div class="card shadow p-3 mb-3 bg-white bg-light alto">
-            <h5 class="card-title align-items-start flex-column flex-wrap">DATOS</h5>
-            <div class="d-flex flex-md-row flex-lg-row">
+            <h5 class="card-title text-center flex-column flex-wrap">DATOS</h5>
+            <div class="justify-content-center d-flex flex-md-row flex-lg-row">
             <div class="col-md-2 mb-2 ubicacion">
                 <label for="validationDefault04 align-self-start">LIGA</label>
                 <select class="custom-select" id="validationDefault04" required>
@@ -139,8 +96,8 @@
             </div>
             <!--Stock-->
             <div class="card shadow p-3 mb-3 bg-white bg-light alto">
-              <h5 class="card-title">STOCK</h5>
-              <div class="d-flex justify-content-start flex-wrap">
+              <h5 class="card-title text-center">STOCK</h5>
+              <div class="d-flex justify-content-center flex-wrap">
               <div class="talles">
                 <h6>XS</h6>
                 <textarea name="title" class="bg-light" id="title" cols="5" rows="1"></textarea>
@@ -178,39 +135,9 @@
        </article>   
       </section>
 
-    </main>
+    
     <!-- Footer -->
-    <footer class="page-footer font-small bg-dark">
-      <article class="col-12">
-        <h5 class="text-center text-light pt-3">FOLLOW US!</h5>
-      </article>
-      <div class="d-flex justify-content-center pt-5">
-            <div class="mb-5 flex-center">
-              <a href="https://facebook.com" class="social text-light bg-dark">
-                <i><ion-icon size="large" name="logo-facebook"></ion-icon></i>
-              </a>
-              <a href="https://twitter.com" class="social text-light bg-dark">
-                <ion-icon size="large" name="logo-twitter"></ion-icon>
-              </a>
-              <a href="https://pinterest.com" class="social text-light bg-dark">
-                <i><ion-icon size="large" name="logo-pinterest"></ion-icon></i>
-              </a>
-              <a href="https://youtube.com" class="social text-light bg-dark">
-                <ion-icon size="large" name="logo-youtube"></ion-icon></i>
-              </a><a href="https://whatsapp.com" class="social text-light bg-dark">
-                <i><ion-icon size="large" name="logo-whatsapp"></ion-icon></i>
-              </a>
-            </div>
-      </div>
-      <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="" class="text-black"> Grupo#7 |DH|</a>
-      </div>
-    </footer>
-
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery-341.min.js"></script>
-<script src="js/bootstrap.bundle.min.js" ></script>
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+    <%- include('../partials/footer') %>
+  </main>
 </body>
 </html>
