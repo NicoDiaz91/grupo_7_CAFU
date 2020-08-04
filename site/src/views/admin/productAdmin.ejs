@@ -1,47 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+<!--Head-->
+<%- include('../partials/head.ejs') %>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
+
 <body>
-    <main>
+  <main>
     <!--NavBar-->
     <%- include("../partials/navbar") %>
     <main>
-        <article class="col-12">
-            <h1 class="text-center mt-3">ADMINISTRADOR DE PRODUCTOS</h1>
-          </article>
-          <article class="col-12">
-            <p class="font-weight-lighter text-center "><a href="/productAdd" class="text-decoration-none text-reset">AQUÍ PARA INGRESAR </a>NUEVO PRODUCTO</p>
-          </article>
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Título</th>
-                <th scope="col">Ver</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Borrar</th>
-              </tr>
-            </thead>
-            <tbody>
-                <% camisetas.forEach(camiseta => { %>
-                    <tr>
-                      <td><%= camiseta.id%> </td>
-                      <td><%= camiseta.title%> </td>
-                      <td><a href="/productDetail/<%= camiseta.id %> "> <ion-icon name="eye-outline"></ion-icon></a></td>
-                      <td><a href="/productEdit/<%= camiseta.id %> "> <ion-icon name="pencil-outline"></ion-icon></a></td>
-                      <td><a href="/productDelete/<%= camiseta.id %> "><ion-icon name="trash-outline"></ion-icon></a></td>
-                    </tr>
-                    <% }); %>
-            </tbody>
-          </table>
-          <!--Footer-->
-          <%- include("../partials/footer") %>
+      <article class="col-12">
+        <h1 class="text-center mt-3">ADMINISTRADOR DE PRODUCTOS</h1>
+      </article>
+      <article class="col-12">
+        <p class="font-weight-lighter text-center "><a href="/productAdd" class="text-decoration-none text-reset">AQUÍ
+            PARA INGRESAR </a>NUEVO PRODUCTO</p>
+      </article>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Título</th>
+            <th scope="col">Ver</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Borrar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% camisetas.forEach(camiseta => { %>
+          <tr>
+            <td><%= camiseta.id%> </td>
+            <td><%= camiseta.title%> </td>
+            <td><a href="/productDetail/<%= camiseta.id %> ">
+                <ion-icon name="eye-outline"></ion-icon>
+              </a></td>
+            <td><a href="/productEdit/<%= camiseta.id %> ">
+                <ion-icon name="pencil-outline"></ion-icon>
+              </a></td>
+            <td><a href="/productDelete/<%= camiseta.id %> ">
+                <ion-icon name="trash-outline"></ion-icon>
+              </a></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <!--Footer-->
+      <%- include("../partials/footer") %>
     </main>
-    
+
 </body>
+
 </html>

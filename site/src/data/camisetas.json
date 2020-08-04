@@ -195,7 +195,7 @@
         "description": "Camiseta titular usada en la temporada 2018/2019",
         "price": 1500,
         "size": "M",
-        "image": "Bayern.jpg"
+        "image": "borussia.jpg"
     },
     {
         "id": 23,
@@ -210,9 +210,9 @@
         "id": 24,
         "title": "Bayern Leverkusen",
         "league": "Alemaña",
-        "descripcion": "Camiseta titular usada en la temporada 2018/2019",
+        "description": "Camiseta titular usada en la temporada 2018/2019",
         "precio": 1300,
-        "imagen": "leverkusen.jpg"
+        "image": "leverkusen.jpg"
     },
     {
         "id": 25,

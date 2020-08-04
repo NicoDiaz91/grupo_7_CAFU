@@ -5,7 +5,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, path.resolve(__dirname, '..','..','public','img','camisetas'));
+      cb(null, path.resolve(__dirname, '..','..','public','img'));
     },
     filename: function (req, file, cb) {
       cb(null, 'camiseta-'+Date.now() + path.extname(file.originalname));
@@ -18,7 +18,7 @@ const controllersProductos = require(path.resolve(__dirname, '../controllers/con
 
 router.get('/productos', controllersProductos.index );
 router.get('/productDetail/:id', controllersProductos.detail);
-router.get('/productCart', controllersProductos.cart );
+router.get('/productCart/:id?', controllersProductos.cart );
 
 
 module.exports = router;

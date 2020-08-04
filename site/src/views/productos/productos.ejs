@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Productos</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+<!--Head-->
+<%- include('../partials/head.ejs') %>
   <link rel="stylesheet" href="css/productos.css">
 </head>
 
@@ -22,12 +16,12 @@
       <% if(camisetas[i].league == "Argentina"){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/public/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
+          <img src="/img/<%= camisetas[i].image %>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> <%= camisetas[i].price %></h5>
-          <a href="/ProductDetail/:<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/:<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
+          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% }%>
@@ -39,12 +33,12 @@
       <%if(camisetas[i].league == "Inglaterra"){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/public/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
+          <img src="/img/<%= camisetas[i].image %>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> <%= camisetas[i].price %></h5>
-          <a href="/ProductDetail/:<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/:<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
+          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% } %>
@@ -56,12 +50,12 @@
       <%if(camisetas[i].league == "Italia"){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/public/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
+          <img src="/img/<%= camisetas[i].image %>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> <%= camisetas[i].price %></h5>
-          <a href="/ProductDetail/:<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/:<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
+          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% } %>
@@ -73,12 +67,12 @@
       <%if(camisetas[i].league == "España"){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/public/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
+          <img src="/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> <%= camisetas[i].price %></h5>
-          <a href="/ProductDetail/:<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/:<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
+          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% } %>
@@ -90,12 +84,12 @@
       <%if(camisetas[i].league == "Alemaña"){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/public/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
+          <img src="/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> <%= camisetas[i].price %></h5>
-          <a href="/ProductDetail/:<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/:<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
+          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% } %>
@@ -107,12 +101,12 @@
       <%if(camisetas[i].league == "Mundiales"){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/public/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
+          <img src="/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> <%= camisetas[i].price %></h5>
-          <a href="/ProductDetail/:<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/:<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
+          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% } %>

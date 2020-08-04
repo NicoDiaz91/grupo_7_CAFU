@@ -21,11 +21,8 @@ body{
 
 #imagen{
     background-color: grey;
-    text-align: center;
-    
-    }
-
-
+    text-align: center
+}
 textarea {
     width: 100%;
 }
