@@ -8,24 +8,40 @@
   <%- include('../partials/navbar.ejs') %>
   <form id="container">
     <h1>Registrate</h1>
+  <div>
+    <% if(typeof(errors) != 'undefined'){%>
+      <ul class="alert alert-danger">
+         <% errors.forEach(error => { %>
+            <li><%= error.msg%></li>
+         <%});%>
+       </ul>
+   <%}%>
+   <form action="/registro" method="post" enctype="multipart/form-data"> 
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4"></label>
-        <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre">
+        <input type="text" class="form-control" id="inputEmail4" name="first_name" placeholder="Nombre" value="<%= typeof old != 'undefined' ? old.first_name : '' %>">
       </div>
       <div class="form-group col-md-6">
         <label for="inputPassword4"></label>
-        <input type="text" class="form-control" id="inputPassword4" placeholder="Apellido">
+        <input type="text" class="form-control" id="inputPassword4" name="last_name" placeholder="Apellido" value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
       </div>
     </div>
     <div class="form-group">
       <label for="inputAddress"></label>
-      <input type="email" class="form-control" id="inputAddress" placeholder="email ">
+      <input type="email" class="form-control" id="inputAddress" name="email" placeholder="Email" value="<%= typeof old != 'undefined' ? old.email : '' %>">
     </div>
     <div class="form-group">
       <label for="inputAddress2"></label>
-      <input type="password" class="form-control" id="inputAddress2" placeholder="Contraseña">
+      <input type="password" class="form-control" id="inputAddress2" name="password" placeholder="Contraseña">
     </div>
+    <div class="form-group">
+      <label for="inputAddress2"></label>
+      <input type="password" class="form-control" id="inputAddress2" name="confirm_password" placeholder="Confirma Contraseña">
+    </div>
+    <div class="custom-file">
+      <input type="file"   name="avatar"  placeholder="Eligí un avatar">
+  </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputCity"></label>
@@ -40,8 +56,12 @@
       </div>
 
     </div>
+  </form>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark">REGISTRARSE</button>
+</div>
 
-    <a href="/login" button type="submit" class="btn btn-dark" class="boton">Aceptar</button>
   </form>
   <!-- Footer -->
   <%- include('../partials/footer') %>

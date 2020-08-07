@@ -9,17 +9,32 @@
   <%- include('../partials/navbar.ejs') %>
   <div class="formulario">
     <h1>Inicio sesion</h1>
-    <form class="caja">
+    <form action="/login" method="post" class="caja">
 
       <div class="form-group">
         <label for="inputAddress"></label>
-        <input type="email" class="form-control" id="inputAddress" placeholder="email ">
+        <input type="email" class="form-control" name="email" placeholder="Email" value="<%= typeof old != 'undefined' ? old.email : '' %>" >
+         <% if(typeof(errors) != 'undefined' && errors.email){%>
+          <span class="text-danger">
+           <%= errors.email.msg %>
+          </span>
+        <%}%>
       </div>
       <div class="form-group">
         <label for="inputAddress2"></label>
-        <input type="password" class="form-control" id="inputAddress2" placeholder="Contraseña">
+        <input type="password" class="form-control" id="inputAddress2" placeholder="password" name="password" aria-label="Username">
       </div>
-      <a href="/" button type="submin" class="btn btn-dark">Ingresar</a>
+      <% if(typeof(errors) != 'undefined' && errors.password){%>
+        <span class="text-danger">
+          <%= errors.password.msg %>
+        </span>
+     <%}%>
+     <div class="form-group ">
+      <input type="checkbox" name="recordarme"><label class="checkbox-inline">Recordarme</label>
+    </div>
+    <div class="form-group ">
+      <button type="submit" class="btn btn-dark">INGRESAR</button>
+    </div>
       <div>
         <p class="font-weight-lighter">Si aún no tenés cuenta <a href="/registro"
             class="text-decoration-none">Registrarse</a></p>
