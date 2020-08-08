@@ -10,9 +10,6 @@ const {
 
 
 module.exports = {
-    index: function (req, res){
-        res.render(path.resolve(__dirname, '../views/user/login'))
-    },
     register: function (req, res){
         res.render(path.resolve(__dirname, '../views/user/register'))
     },
@@ -23,7 +20,7 @@ module.exports = {
             nombre: req.body.first_name,
             apellido: req.body.last_name,
             email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
+            password: bcrypt.hashSync(req.body.password, 8),
             avatar:  req.file ? req.file.filename : '',
             role: 1
           }
@@ -47,6 +44,9 @@ module.exports = {
           });
         }
       },
+      index: function (req, res){
+        res.render(path.resolve(__dirname, '../views/user/login'))
+    },
   
       login: function(req,res){
           res.render(path.resolve(__dirname,'..','views','user','login'))

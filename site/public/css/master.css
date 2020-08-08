@@ -3,7 +3,7 @@
 }
 
 main{
-    background-color: black;
+    background-color: rgb(233, 236, 239) ;
 }
 
 .btn{
@@ -15,42 +15,62 @@ main{
     position: absolute;
 }
 .banner img{
-    margin-top: 5vh;
-    width: 50%;
+    
+    width: 49%;
     height: 35vh;
+    margin: 1px;
+    padding: 2px;
 }
 .carousel-inner{
-    height: 30vh;
+    height: 10vh;
 }
 .carousel-item{
     margin-left: 0;
     margin-right: 0;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    height: 20vh;
+    height: 40vh;
     
 }
 .carousel-content{
     margin: 0;
     padding: 0;
     position: absolute;
-    top: 40%;
+    top: 50%;
     width: 100%;
     text-align: center;
+}
+#promos{
+    font-size: 3rem;
+    font-weight: bold;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(233, 236, 239);
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.6);
 }
 
 .row{
     margin: auto;
 }
 .card{
-    padding: 0;
+    margin: 5;
     height: 30vh;
-    width: 100%;
-    background-size: contain;
+    width: 95%;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-color: black;
+    background-color: white;
     background-position: center;
     
+}
+.liga{
+    align-self: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-items: center;
+    font-kerning: 50px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: rgb(233, 236, 239);
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.6);
+
 }
 .boton{
     position: relative;
@@ -58,29 +78,28 @@ main{
     text-align: center;
 }
 .superliga{
-    background-image: url('../img/camisetas-superliga-2019-20-h1-1021x550.jpg');
+    background-image: url('../img/tab-river-plate-third-shirt-2020-min.jpg');
     
 }
 .premier{
-    background-image: url('../img/faeedb4769b2.jpg');  
+    background-image: url('../img/manchester-united-camiseta-2020-2021-adidas-local-qw.jpg');  
     
 }
 .seriea{
-    background-image: url('../img/9a17333952c4.jpg'); 
+    background-image: url('../img/https___hypebeast.com_image_2020_06_inter-milan-nike-home-jersey-2020-2021-season-02.jpg'); 
     
 }
 .laliga{
-    background-image: url('../img/bcd433d8eb8f.jpg');
+    background-image: url('../img/e9fd917c3a71073c9a749160b9171ec1.webp');
     
 }
 .bundesliga{
-    background-image: url('../img/ac81e2f3445f.jpg');
+    background-image: url('../img/RB-Leipzig-Champions-League-Kit-2019-2020.jpg');
     
 }
 .mundiales{
-    background-image: url('../img/nike-2020-national-team-kits-1.jpg');
+    background-image: url('../img/15809542752895.jpg');
 }
-
 
 @media (min-width: 768px ){
     .banner{
