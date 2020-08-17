@@ -22,6 +22,14 @@ module.exports = {
         res.render(path.resolve(__dirname, '..', 'views', 'productos', 'productDetail'),{miCamiseta});
     },
     cart: function (req, res){
-        res.render(path.resolve(__dirname, '../views/productos/productCart'))
+        let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
+        let miCamiseta;
+        camisetas.forEach(camiseta => {
+            if(camiseta.id == req.params.id){
+                miCamiseta = camiseta;         
+            }
+        });
+        res.render(path.resolve(__dirname, '..','views','productos','productCart'), {miCamiseta})
+        
     }
 }

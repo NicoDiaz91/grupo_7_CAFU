@@ -1,12 +1,38 @@
+
 <!--Head-->
+<head>
 <%- include('../partials/head.ejs') %>
 </head>
 
 <body>
-    <!--NavBar-->
-    <%- include('../partials/navbar.ejs') %>
-    <!--Footer-->
-    <%- include('../partials/footer') %>
+<!--NavBar-->
+<%- include('../partials/navbar.ejs') %>
+<div class="row">
+    <div class="media col-sm-6 p-3">
+        <img src="/img/<%= miCamiseta.image %>" class="align-self-start mr-3 w-25" alt="...">
+            <div class="media-body text-left">
+                <h5 class="mt-0 mb-1"><%= miCamiseta.title%></h5>
+                <p>$ <%= miCamiseta.price %></p>
+                <p><%= miCamiseta.size%></p>
+            </div>
+    </div>
+    <div class="card col-sm-6 p-3">
+        <div class="card-header text-center">
+          CHECKOUT
+        </div>
+        <div class="card-body">
+          <p class="card-text pl-3">Subtotal: $ <%= miCamiseta.price %></p>
+          <p class="card-text pl-3">Envío: <a href="#">agregar</a></p>
+          <p class="card-text pl-3">Descuento: <a href="#">agregar</a></p>
+          <hr>
+          <p class="card-text pl-3 font-weight-bold">Total: $ <%= miCamiseta.price %></p>
+          <a href="#" class="btn btn-dark align-center btn-lg btn-block">CHECKOUT</a>
+        </div>
+      </div>
+</div>
+   
+<!--Footer-->
+<%- include('../partials/footer') %>
 </body>
 
 </html>
