@@ -4,7 +4,7 @@ const router = express.Router();
 
 const path = require ('path');
 
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 const fs = require('fs');
 
@@ -22,7 +22,7 @@ let archivoUsers =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, path.resolve(__dirname, '../../public/images/users'));
+      cb(null, path.resolve(__dirname, '../../public/img/users'));
     },
     filename: function (req, file, cb) {
       cb(null, 'foto' + '-' + Date.now()+ path.extname(file.originalname));      
@@ -34,10 +34,10 @@ const upload= multer({ storage })
 router.get('/registro', controllersUser.register);
 
 router.post('/registro', upload.single('avatar'),[
-    check('first_name').isLength({
+    check('firstName').isLength({
         min: 1
       }).withMessage('Nombre está vacío'),
-    check('last_name').isLength({min: 1
+    check('lastName').isLength({min: 1
       }).withMessage('Apellido está vacío'),
     check('email').isEmail().withMessage('Agregar un email válido'),
 
@@ -48,7 +48,7 @@ router.post('/registro', upload.single('avatar'),[
             }
         }
         return true
-    }).withMessage('Usuario registrado'),
+    }).withMessage('Este email ya está registrado'),
 
     check('password').isLength({min: 8 }).withMessage('La contraseña debe tener un mínimo de 8 caractéres'),
 

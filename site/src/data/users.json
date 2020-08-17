@@ -1,38 +1,46 @@
 [
-    {
-        "id": 1,
-        "firstName": "Nicolas",
-        "lastName": "Diaz",
-        "email": "nicodiaz@asd.com",
-        "password": "asdasd",
-        "category": "admin",
-        "image": "asd.jpg"
-    },
-    {
-        "id": 2,
-        "firstName": "Maximiliano"  ,
-        "lastName": "Del Caño",
-        "email": "maxidelcaño@asd.com",
-        "password": "asdasd",
-        "category": "admin",
-        "image": "asd.jpg"
-    },
-    {
-        "id": 3,
-        "firstName": "Ignacio",
-        "lastName": "Burgos",
-        "email": "ignacioburgos@asd.com",
-        "password": "asdasd",
-        "category": "admin",
-        "image": "asd.jpg"
-    },
-    {
-        "id": 4,
-        "firstName": "Juan",
-        "lastName": "P",
-        "email": "juanp@asd.com",
-        "password": "asdasd",
-        "category": "user" ,
-        "image": "user.jpg"
-    }
+  {
+    "id": 1,
+    "firstName": "Nicolas",
+    "lastName": "Diaz",
+    "email": "nicolasdiaz.91@hotmail.com",
+    "password": "asdasdasd",
+    "city": "Argentina",
+    "country": "Buenos Aires",
+    "avatar": "",
+    "role": 9
+  },
+  {
+    "id": 2,
+    "firstName": "Maximiliano",
+    "lastName": "Del Caño",
+    "email": "maxidelcaño@asd.com",
+    "password": "asdasdasd",
+    "city": "Argentina",
+    "country": "Buenos Aires",
+    "avatar": "",
+    "role": 9
+  },
+  {
+    "id": 3,
+    "firstName": "Ignacio",
+    "lastName": "Burgos",
+    "email": "ignacioburgos@asd.com",
+    "password": "asdasd",
+    "city": "Argentina",
+    "country": "Buenos Aires",
+    "avatar": "",
+    "role": 9
+  },
+  {
+    "id": 4,
+    "firstName": "Malena",
+    "lastName": "Gala",
+    "email": "mgala@hotmail.com",
+    "password": "$2a$08$euZMgMDfLAuU6f1PlK.w2uokNR7qEnZgWXhbsEG4pG9evaNwZTxey",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "avatar": "foto-1597699043479.jpg",
+    "role": 1
+  }
 ]

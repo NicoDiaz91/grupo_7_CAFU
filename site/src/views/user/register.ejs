@@ -1,68 +1,73 @@
 <!--Head-->
 <%- include('../partials/head.ejs') %>
-  <link rel="stylesheet" href="css/registro.css">
+<link rel="stylesheet" href="css/registro.css">
 </head>
 
 <body>
   <main>
-  <!--Navbar-->
-  <%- include('../partials/navbar.ejs') %>
-  <form id="container">
+    <!--Navbar-->
+    <%- include('../partials/navbar.ejs') %>
       <article class="col-12">
-       <h1 class="text-center mt-3">REGISTRO</h1>
+        <h1 class="text-center mt-3">REGISTRO</h1>
       </article>
       <article class="col-12">
-        <p class="font-weight-lighter text-center "><a href="/login" class="text-decoration-none text-reset">INGRESA A LOGIN</a>, SI YA TENES CUENTA</p>
+        <p class="font-weight-lighter text-center "><a href="/login" class="text-decoration-none text-reset">INGRESA A
+            LOGIN</a>, SI YA TENES CUENTA</p>
       </article>
-  <div class="col-8 mx-auto bg-light ">
-      <% if(typeof(errors) != 'undefined'){%>
+      <div class="col-8 mx-auto bg-light ">
+        <% if(typeof(errors) != 'undefined'){%>
         <ul class="alert alert-danger">
-         <% errors.forEach(error => { %>
-            <li><%= error.msg%></li>
-         <%});%>
+          <% errors.forEach(error => { %>
+          <li><%= error.msg%></li>
+          <%});%>
         </ul>
-      <%}%>
+        <%}%>
     <div class="">
-      <form action="/registro" method="post" enctype="multipart/form-data"> 
+      <form action="/registro" method="POST" enctype="multipart/form-data"> 
         <div class="form-row">
           <div class="form-group col-md-6">
-            <input type="text" class="form-control" name="first_name" placeholder="Nombre" value="<%= typeof old != 'undefined' ? old.first_name : '' %>">
-          </div>
-          <div class="form-group col-md-6">
-            <input type="text" class="form-control" id="inputPassword4" name="last_name" placeholder="Apellido" value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
-          </div>
-        </div>
-        <div class="form-group">
-          <input type="email" class="form-control" id="inputAddress" name="email" placeholder="Email" value="<%= typeof old != 'undefined' ? old.email : '' %>">
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" id="inputAddress2" name="password" placeholder="Contraseña">
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" id="inputAddress2" name="confirm_password" placeholder="Confirma Contraseña">
-        </div>
-        <div class="custom-file">
-          <input type="file"   name="avatar"  placeholder="Eligí un avatar">
-        </div>
-        <div class="form-row">
-        <div class="form-group col-md-6">   
-          <input type="text" class="form-control" id="inputCity" placeholder="Ciudad">
+            <input type="text" class="form-control" name="firstName" placeholder="Nombre" value="<%= typeof old != 'undefined' ? old.firstName : '' %>">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" id="inputPassword4" name="lastName" placeholder="Apellido"
+          value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
+      </div>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" id="inputAddress" name="email" placeholder="Email"
+          value="<%= typeof old != 'undefined' ? old.email : '' %>">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="inputAddress2" name="password" placeholder="Contraseña">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="inputAddress2" name="confirm_password"
+          placeholder="Confirma Contraseña">
+      </div>
+      <div class="custom-file">
+        <input type="file" name="avatar" placeholder="Eligí un avatar">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" id="inputCity" placeholder="Ciudad" name="city">
         </div>
         <div class="form-group col-md-4">
-          <select id="pais" class="form-control">
+          <select name="country" id="pais" class="form-control">
             <option selected>Seleccione pais</option>
-            <option>...</option>
+            <% for(let i = 0; i < paises.length; i++){ %>
+            <option><%= paises[i].name %></option>
+            <% } %>
           </select>
         </div>
-    </div>  
-  </div>
-  <div class="m-10">
-    <button type="submit" class="btn btn-dark align-center m-10">REGISTRARSE</button>
-  </div>
-  </form>
-  <!-- Footer -->
-  <%- include('../partials/footer') %>
-</main>
+      </div>
+      </div>
+      <div class="m-10">
+        <button type="submit" class="btn btn-dark align-center m-10">REGISTRARSE</button>
+      </div>
+    </form>
+    <!-- Footer -->
+    <%- include('../partials/footer') %>
+  </main>
 </body>
 
 </html>

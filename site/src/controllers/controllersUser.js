@@ -11,35 +11,40 @@ const {
 
 module.exports = {
     register: function (req, res){
-        res.render(path.resolve(__dirname, '../views/user/register'))
+      let paises = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'paises.json')));
+        res.render(path.resolve(__dirname, '../views/user/register'),{paises})
     },
     create: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
+
+          
+          let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/users.json'), {
+            encoding: 'utf-8'}))
+
+          
+          let ultimoUser = users.pop()
+          users.push(ultimoUser);
+
           let user = {
-            nombre: req.body.first_name,
-            apellido: req.body.last_name,
+            id: ultimoUser.id +1,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 8),
+            city: req.body.city,
+            country: req.body.country,
             avatar:  req.file ? req.file.filename : '',
             role: 1
           }
-          let archivoUsers = fs.readFileSync(path.resolve(__dirname, '../data/users.json'), {
-            encoding: 'utf-8'
-          });
-          let users;
-          if (archivoUsers == "") {
-            users = [];
-          } else {
-            users = JSON.parse(archivoUsers);
-          };
-    
+
           users.push(user);
+
           usersJSON = JSON.stringify(users, null, 2);
           fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), usersJSON);
           res.redirect('/login');
         } else {
-          return res.render(path.resolve(__dirname, '../views/users/register'), {
+          return res.render(path.resolve(__dirname, '../views/user/register'), {
             errors: errors.errors,  old: req.body
           });
         }
