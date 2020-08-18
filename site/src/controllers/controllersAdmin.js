@@ -8,11 +8,15 @@ module.exports = {
         res.render(path.resolve(__dirname, '..', 'views', 'admin', 'productAdmin'),{camisetas});
     },
     create: (req, res) =>{
-        //let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
-        res.render(path.resolve(__dirname, '..','views','admin','productAdd'));
+        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'categorys.json')));
+        let ligas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'leagues.json')));
+
+        res.render(path.resolve(__dirname, '..','views','admin','productAdd'),{categorias, ligas});
     },
     save: (req,res)=>{
-        let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
+        let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json'), {
+            encoding: 'utf-8'}));
+
         
         let ultimaCamiseta = camisetas.pop();
         camisetas.push(ultimaCamiseta);
@@ -22,11 +26,12 @@ module.exports = {
             title: req.body.title,
             category: req.body.category,
             league: req.body.league,
-            team: req.body.team,
             brand: req.body.brand,
+            season: req.body.season,
             price: req.body.price,
             size: req.body.size,
-            image: req.file.filename
+            stock: req.body.stock,
+            image: req.file ? req.file.filename : '',
         };
             camisetas.push(nuevoProducto);
             let nuevoProductoGuardar = JSON.stringify(camisetas,null,2)

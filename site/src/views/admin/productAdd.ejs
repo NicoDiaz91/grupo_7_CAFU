@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--Head-->
 <%- include('../partials/head.ejs') %>
-  <link rel="stylesheet" href="css/productAdd.css">
+<link rel="stylesheet" href="css/productAdd.css">
 </head>
 
 <body>
@@ -18,55 +18,39 @@
       <article class="col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-center">
         <!--Titulo-->
         <div class="card shadow p-3 mb-3 bg-white bg-light alto">
-          <h5 class="card-title text-center">TÍTULO</h5>
-          <textarea name="title" class="bg-light" id="title" cols="35" rows="1">Coloque aquí el título</textarea>
-          <small class="d-flex justify-content-end pr-3 text-secondary">0/50</small>
+          <h5 class="card-title text-center">Nombre del Club</h5>
+          <form action="/productAdd" method="POST" enctype="multipart/form-data">
+            <input type="text" name="title" class="w-100 text-center"
+              placeholder="Indique el nombre del club al cual corresponda la nueva camiseta">
         </div>
         <!--Categoría-->
         <div class="card shadow p-3 mb-3 bg-white bg-light alto">
           <h5 class="card-title text-center">CATEGORÍA</h5>
-          <div class="d-flex justify-content-center flex-wrap">
-            <button type="button" class="btn btn-secondary btn-md m-2">Nueva Temporada</button>
-            <button type="button" class="btn btn-secondary btn-md m-2">Colección</button>
-            <button type="button" class="btn btn-secondary btn-md m-2">Edición Limitada</button>
-            <button type="button" class="btn btn-secondary btn-md m-2">Pre-venta</button>
+          <div class="d-flex justify-content-center flex-wrap form-group">
+            <select name="category" id="" class="form-control">
+              <option selected>Seleccione una categoria</option>
+              <% for(var i = 0; i < categorias.length; i++){ %>
+              <option><%= categorias[i].name %></option>
+              <% } %>
+            </select>
           </div>
         </div>
         <!--Datos-->
         <div class="card shadow p-3 mb-3 bg-white bg-light alto">
           <h5 class="card-title text-center flex-column flex-wrap">DATOS</h5>
           <div class="justify-content-center d-flex flex-md-row flex-lg-row">
-            <div class="col-md-2 mb-2 ubicacion">
+            <div class="col-md-3 mb-2 ubicacion">
               <label for="validationDefault04 align-self-start">LIGA</label>
-              <select class="custom-select" id="validationDefault04" required>
+              <select class="custom-select form-control" id="validationDefault04" name="league" required>
                 <option selected disabled value="">Elegir...</option>
-                <option>Premier League</option>
-                <option>La Liga</option>
-                <option>Serie A</option>
-                <option>Bundesliga</option>
-                <option>League 1</option>
-                <option>Super Liga</option>
-                <option>Selecciones</option>
-                <option>MLS</option>
+                <% for(var i= 0; i < ligas.length; i++){ %>
+                <option><%= ligas[i].name %></option>
+                <% } %>
               </select>
             </div>
-            <div class="col-md-2 mb-2 ubicacion">
-              <label for="validationDefault04">EQUIPO</label>
-              <select class="custom-select" id="validationDefault04" required>
-                <option selected disabled value="">Elegir...</option>
-                <option>Arsenal</option>
-                <option>Aston Villa</option>
-                <option>Chelsea</option>
-                <option>Liverpool</option>
-                <option>Manchester United</option>
-                <option>Manchester City</option>
-                <option>Everton</option>
-                <option>Leicester City</option>
-              </select>
-            </div>
-            <div class="col-md-2 mb-2 ubicacion">
+            <div class="col-md-3 mb-2 ubicacion">
               <label for="validationDefault04">MARCA</label>
-              <select class="custom-select" id="validationDefault04" required>
+              <select class="custom-select" id="validationDefault04" name="brand" required>
                 <option selected disabled value="">Elegir...</option>
                 <option>Adidas</option>
                 <option>Nike</option>
@@ -77,10 +61,10 @@
                 <option>Otros</option>
               </select>
             </div>
-            <div class="col-md-2 mb-2 ubicacion">
+            <div class="col-md-3 mb-2 ubicacion">
               <label for="validationDefault04">TEMPORADA</label>
-              <select class="custom-select" id="validationDefault04" required>
-                <option selected disabled value="">Elegir...</option>
+              <select class="custom-select" id="validationDefault04" name="season" required>
+                <option selected value="">Elegir...</option>
                 <option>Histórica</option>
                 <option>Campeón</option>
                 <option>18/19</option>
@@ -90,44 +74,37 @@
             </div>
           </div>
         </div>
-        <!--Stock-->
+        <!--Talle/Stock-->
         <div class="card shadow p-3 mb-3 bg-white bg-light alto">
-          <h5 class="card-title text-center">STOCK</h5>
-          <div class="d-flex justify-content-center flex-wrap">
-            <div class="talles">
-              <h6>XS</h6>
-              <textarea name="title" class="bg-light" id="title" cols="5" rows="1"></textarea>
+          <div class="justify-content-center d-flex flex-md-row flex-lg-row">
+            <label>Talle</label>
+            <div class="col-md-3 mb-2">
+              <select name="size" id="" class="">
+                <option value="" selected>Elegir Talle</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
             </div>
-            <div class="talles">
-              <h6>S</h6>
-              <textarea name="title" class="bg-light" id="title" cols="5" rows="1"></textarea>
+            <label>Stock</label>
+            <div class="col-md-3 mb-2">
+              <input type="number" name="stock" value="">
             </div>
-            <div class="talles">
-              <h6>M</h6>
-              <textarea name="title" class="bg-light" id="title" cols="5" rows="1"></textarea>
-            </div>
-            <div class="talles">
-              <h6>L</h6>
-              <textarea name="title" class="bg-light" id="title" cols="5" rows="1"></textarea>
-            </div>
-            <div class="talles">
-              <h6>XL</h6>
-              <textarea name="title" class="bg-light" id="title" cols="5" rows="1"></textarea>
-            </div>
-            <div class="talles">
-              <h6>XXL</h6>
-              <textarea name="title" class="bg-light" id="title" cols="5" rows="1"></textarea>
+            <label>Precio</label>
+            <div class="col-md-3 mb-2">
+              $<input type="number" name="price" value="">
             </div>
           </div>
         </div>
         <!--Imágenes-->
-        <div class="card shadow p-3 mb-3 bg-white bg-light alto">
-          <h5 class="card-title">IMÁGENES</h5>
-          <input type="file" name="imagen">
+        <div class="card shadow p-3 mb-3 bg-white bg-light custom-file alto">
+          <input type="file" name="image" class="">
         </div>
-        <div class="d-flex justify-content-center mb-3">
-          <a class="btn btn-dark confirmar" href="/" role="button">CONFIRMAR</a>
+        <div class="d-flex justify-content-center mb-3 alto">
+          <button type="submit" class="btn align-center m-10">Crear</button>
         </div>
+        </form>
       </article>
     </section>
 
