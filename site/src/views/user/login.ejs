@@ -7,8 +7,8 @@
 <body>
   <!--Navbar-->
   <%- include('../partials/navbar.ejs') %>
-  <div class="formulario">
-    <h1>Inicio sesion</h1>
+  <div class="formulario min-75">
+    <h1>INICIO SESIÓN</h1>
     <form action="/login" method="post" class="caja">
 
       <div class="form-group">
@@ -35,10 +35,9 @@
     <div class="form-group ">
       <button type="submit" class="btn btn-dark">INGRESAR</button>
     </div>
-      <div>
-        <p class="font-weight-lighter">Si aún no tenés cuenta <a href="/registro"
-            class="text-decoration-none">Registrarse</a></p>
-      </div>
+    <article class="col-12">
+      <p class="font-weight-lighter text-center "><a href="/registro" class="text-decoration-none text-reset">REGISTRARSE</a>, SI AÚN NO TENES CUENTA</p>
+    </article>
     </form>
   </div>
   <!-- Footer -->
