@@ -29,7 +29,6 @@ module.exports = {
             brand: req.body.brand,
             season: req.body.season,
             price: req.body.price,
-            size: req.body.size,
             stock: req.body.stock,
             image: req.file ? req.file.filename : '',
         };
@@ -59,9 +58,11 @@ module.exports = {
     },
     edit: (req,res)=>{
         let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
+        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'categorys.json')));
+        let ligas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'leagues.json')));
         const camisetasId = req.params.id;
         let camisetaEditar = camisetas.find(camiseta=> camiseta.id == camisetasId);
-        res.render(path.resolve(__dirname, '..','views','admin','productEdit'), {camisetaEditar});
+        res.render(path.resolve(__dirname, '..','views','admin','productEdit'), {camisetaEditar,categorias,ligas});
     },
     update: (req,res) =>{
         let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));

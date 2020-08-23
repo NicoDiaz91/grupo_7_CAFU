@@ -17,9 +17,12 @@
         <div class="row my-2 text-center">
           <div class="col-12 col-sm-12">
             <h2><%= miCamiseta.title%></h2>
-            <p><%= miCamiseta.description %></p>
             <p class="precio">$ <%= miCamiseta.price %></p>
-            <p class="talle"><%= miCamiseta.size%></p>
+            <p class="categoria"><%= miCamiseta.category%></p>
+            <p class="liga">Liga de <%= miCamiseta.league%></p>
+            <p class="marca"><%= miCamiseta.brand%></p>
+            <p class="temporada">Temporada: <%= miCamiseta.season%></p>
+            <p class="stock">Stock: <%= miCamiseta.stock%></p>
             <a href="/productCart/<%= miCamiseta.id%>" class="btn btn-secondary">AGREGAR AL CARRITO</a>
             <a href="/productCart/<%=miCamiseta.id%>" class="btn btn-dark">AGREGAR AL WISH LIST</a>
           </div>

@@ -271,13 +271,12 @@
   {
     "id": 31,
     "title": "Club de Prueba",
-    "category": "Colecccion",
+    "category": "Nueva temporada",
     "league": "Inglaterra",
-    "brand": "New Balance",
+    "brand": "Nike",
     "season": "18/19",
-    "price": "1000",
-    "size": "M",
-    "stock": "2",
-    "image": "camiseta-1597728754290.jpg"
+    "price": "3000",
+    "stock": "1",
+    "image": "camiseta-1597800062379.jpg"
   }
 ]
