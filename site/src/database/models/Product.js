@@ -1,40 +1,80 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 
-    const Product = sequelize.define('Products', {
-        id:{
+    let alias = 'products';
+
+    let cols = {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+            allowNull: false
         },
-        name:{
+        title: {
             type: DataTypes.STRING,
+            allowNull: false
         },
-        price:{
+        price: {
             type: DataTypes.INTEGER,
+            allowNull: false
         },
-        description:{
+        image: {
             type: DataTypes.STRING,
-        },
-        image:{
-            type: DataTypes.STRING,
+            allowNull: false
         },
         stock: {
             type: DataTypes.INTEGER,
+            allowNull: false
         },
-        brand_id: {
+        brands_id: {
             type: DataTypes.INTEGER,
+            allowNull: false
         },
-        league_id: {
+        leagues_id: {
             type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        categorys_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        seasons_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
-    
-  }, {});
-  Product.associate = function(models) {
-      Product.hasOne(models.cartProducts,{
-          as: 'cartProduct',
-          foreignKey: 'product_id'
-        });
-  };
-  return Product;
+    };
+
+    let config = {
+        tableName: 'products',
+        timestamp: false
+    };
+
+    const products = sequelize.define(alias, cols, config);
+
+    products.associate = function (models) {
+        products.belongsTo(models.brands, {
+            as: 'brands',
+            foreignKey: 'brands_id'
+        })
+        products.belongsTo(models.categorys, {
+            as: 'categorys',
+            foreignKey: 'categorys_id'
+        })
+        products.belongsTo(models.leagues, {
+            as: 'leagues',
+            foreignKey: 'leagues_id'
+        })
+        products.belongsTo(models.seasons, {
+            as: 'seasons',
+            foreignKey: 'seasons_id'
+        })
+        products.belongsToMany(models.carts, {
+            as: 'carts',
+            through: 'cartProduct',
+            foreignKey: 'products_id',
+            otherKey: 'carts_id'
+        })
+    }
+
+    return products;
 };

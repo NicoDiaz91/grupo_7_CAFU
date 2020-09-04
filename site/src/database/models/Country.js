@@ -1,18 +1,38 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 
-    const Country = sequelize.define('Countrys', {
-        id:{
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        name:{
-            type: DataTypes.STRING,
-        }
-    }, {});
-  Country.associate = function(models) {
-    // associations can be defined here
+  let alias = 'countrys';
+
+  let cols = {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   };
-  return Country;
+
+  let config = {
+    tableName: 'countrys',
+    timestamp: false
+  }
+
+  const countrys = sequelize.define(alias, cols, config);
+
+  countrys.associate = function(models) {
+    countrys.hasMany(models.users, {
+      as:'users',
+      foreignKey: 'countrys_id'
+    })
+    countrys.hasMany(models.provinces,{
+      as: 'provinces',
+      foreignKey: 'countrys_id'
+    })
+  };
+
+  return countrys;
 };

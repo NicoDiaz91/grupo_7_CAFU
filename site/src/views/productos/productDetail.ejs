@@ -18,11 +18,27 @@
           <div class="col-12 col-sm-12">
             <h2><%= miCamiseta.title%></h2>
             <p class="precio">$ <%= miCamiseta.price %></p>
-            <p class="categoria"><%= miCamiseta.category%></p>
-            <p class="liga">Liga de <%= miCamiseta.league%></p>
-            <p class="marca"><%= miCamiseta.brand%></p>
-            <p class="temporada">Temporada: <%= miCamiseta.season%></p>
-            <p class="stock">Stock: <%= miCamiseta.stock%></p>
+            <% categorias.forEach(categoria => { %>
+            <% if(miCamiseta.categorys_id == categoria.id){ %>
+            <p class="categoria">Camiseta: <%= categoria.name %></p>
+            <% } %>
+            <% }) %>
+            <% ligas.forEach(liga => { %>
+            <% if(miCamiseta.leagues_id == liga.id){ %>
+            <p class="liga">Liga de <%= liga.name %></p>
+            <% } %>
+            <% }) %>
+            <% marcas.forEach(marca =>{ %>
+            <% if(miCamiseta.brands_id == marca.id){ %>
+            <p class="marca"><%= marca.name %></p>
+            <% } %>
+            <% }) %>
+            <% temporadas.forEach(temporada =>{ %>
+            <% if(miCamiseta.seasons_id == temporada.id){ %>
+              <p class="temporada">Temporada: <%= temporada.name %></p>
+            <% } %>
+            <% }) %>
+            <p class="stock">Stock: <%= miCamiseta.stock %></p>
             <a href="/productCart/<%= miCamiseta.id%>" class="btn btn-secondary">AGREGAR AL CARRITO</a>
             <a href="/productCart/<%=miCamiseta.id%>" class="btn btn-dark">AGREGAR AL WISH LIST</a>
           </div>

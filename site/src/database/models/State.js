@@ -1,21 +1,33 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 
-    const State = sequelize.define('States', {
+    let alias = 'states';
+
+    let cols = {
         id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+            allowNull: false
         },
         state: {
             type: DataTypes.INTEGER,
+            allowNull: false
         }
-  }, {});
-  State.associate = function(models) {
-    State.belongsTo(models.cartProducts,{
-      as: 'cartProducts',
-      foreignKey: 'state_id'
-    });
   };
-  return State;
+
+  let config = {
+    tableName: 'states',
+    timestamp: false
+  };
+
+  const states = sequelize.define(alias, cols, config);
+
+  states.associate = function(models) {
+    states.hasMany(models.cartProduct,{
+      as: 'cartProducts',
+      foreignKey: 'states_id'
+    })
+  };
+  return states;
 };

@@ -21,7 +21,7 @@ router.get('/productAdmin', controllersAdmin.index);
 router.get("/productAdd", controllersAdmin.create);
 router.post("/productAdd", upload.single('image'), controllersAdmin.save);
 router.get('/productDetail/:id', controllersAdmin.show);
-router.get('/delete/:id', controllersAdmin.destroy);
+router.get('/productDelete/:id', controllersAdmin.destroy);
 router.get('/productEdit/:id', controllersAdmin.edit);
 router.put('/productEdit/:id', upload.single('image'), controllersAdmin.update);
 

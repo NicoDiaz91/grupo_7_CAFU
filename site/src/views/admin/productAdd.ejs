@@ -29,9 +29,9 @@
           <div class="d-flex justify-content-center flex-wrap form-group">
             <select name="category" id="" class="form-control">
               <option selected>Seleccione una categoria</option>
-              <% for(var i = 0; i < categorias.length; i++){ %>
-              <option><%= categorias[i].name %></option>
-              <% } %>
+              <% categorias.forEach(categoria =>{ %>
+              <option value="<%= categoria.id %>"><%= categoria.name %></option>
+              <% }); %>
             </select>
           </div>
         </div>
@@ -43,33 +43,28 @@
               <label for="validationDefault04 align-self-start">LIGA</label>
               <select class="custom-select form-control" id="validationDefault04" name="league" required>
                 <option selected disabled value="">Elegir...</option>
-                <% for(var i= 0; i < ligas.length; i++){ %>
-                <option><%= ligas[i].name %></option>
-                <% } %>
+                <% ligas.forEach(liga =>{ %>
+                <option value="<%= liga.id %>"> <%= liga.name %> </option>
+                <% }) %>
+
               </select>
             </div>
             <div class="col-md-3 mb-2 ubicacion">
               <label for="validationDefault04">MARCA</label>
               <select class="custom-select" id="validationDefault04" name="brand" required>
                 <option selected disabled value="">Elegir...</option>
-                <option>Adidas</option>
-                <option>Nike</option>
-                <option>New Balance</option>
-                <option>Puma</option>
-                <option>Umbro</option>
-                <option>Hummel</option>
-                <option>Otros</option>
+                <% marcas.forEach(marca => { %>
+                  <option value="<%= marca.id %>"><%= marca.name %></option>
+                <% }) %>
               </select>
             </div>
             <div class="col-md-3 mb-2 ubicacion">
               <label for="validationDefault04">TEMPORADA</label>
               <select class="custom-select" id="validationDefault04" name="season" required>
                 <option selected value="">Elegir...</option>
-                <option>Histórica</option>
-                <option>Campeón</option>
-                <option>18/19</option>
-                <option>19/20</option>
-                <option>20/21</option>
+                <% temporadas.forEach(temporada=>{ %>
+                  <option value="<%= temporada.id %>"><%= temporada.name %></option>
+                <% }) %>
               </select>
             </div>
           </div>

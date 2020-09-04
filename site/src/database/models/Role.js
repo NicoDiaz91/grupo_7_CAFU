@@ -1,18 +1,34 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 
-    const Role = sequelize.define('Roles', {
-        id:{
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        name:{
-            type: DataTypes.STRING,
-        }
-    }, {});
-  Role.associate = function(models) {
-    // associations can be defined here
+  let alias = 'roles';
+
+  let cols = {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   };
-  return Role;
+
+  let config = {
+    tableName: 'roles',
+    timestamp: false
+  }
+
+  const roles = sequelize.define(alias, cols, config);
+
+  roles.associate = function(models) {
+    roles.hasOne(models.users, {
+      as: 'users',
+      foreignKey: 'roles_id'
+    })
+
+  };
+  return roles;
 };

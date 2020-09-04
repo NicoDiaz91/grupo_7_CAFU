@@ -7,12 +7,18 @@ const {
   validationResult,
   body
 } = require('express-validator');
+const db = require ('../database/models');
+const countrys = db.countrys;
+const provinces = db.provinces;
 
 
 module.exports = {
-    register: function (req, res){
-      let paises = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'paises.json')));
-        res.render(path.resolve(__dirname, '../views/user/register'),{paises})
+    register: async (req, res) => {
+      //let paises = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'paises.json')));
+      const paises = await countrys.findAll();
+      const provincias = await provinces.findAll();
+
+        res.render(path.resolve(__dirname, '../views/user/register'),{paises, provincias})
     },
     create: (req, res) => {
         let errors = validationResult(req);

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 
-  let alias = 'leagues';
+  let alias = 'seasons';
 
   let cols = {
     id: {
@@ -17,17 +17,17 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   let config = {
-    tableName: 'leagues',
+    tableName: 'seasons',
     timestamp: false
   };
 
-  const leagues = sequelize.define(alias, cols, config);
+  const seasons = sequelize.define(alias, cols, config);
 
-  leagues.associate = function (models) {
-    leagues.hasMany(models.products, {
+  seasons.associate = function(models) {
+    seasons.hasMany(models.products,{
       as: 'products',
-      foreignKey: 'leagues_id'
+      foreignKey: 'seasons_id'
     });
-  }
-  return leagues;
-}
+  };
+  return seasons;
+};

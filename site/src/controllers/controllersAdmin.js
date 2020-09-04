@@ -1,70 +1,132 @@
 const path = require('path');
 const fs = require ('fs');
-
+const db = require ('../database/models');
+const Product = require('../database/models/Product');
+const { setFlagsFromString } = require('v8');
+const products = db.products;
+const categorys = db.categorys;
+const leagues = db.leagues;
+const brands = db.brands;
+const seasons = db.seasons;
 
 module.exports = {
     index: (req,res) =>{
-        let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
-        res.render(path.resolve(__dirname, '..', 'views', 'admin', 'productAdmin'),{camisetas});
+        // PARA JSON
+        //let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
+        /* db.sequelize
+        .query('select * from products')
+        .then(remeras => {
+            return res.send(remeras[0])
+        })        
+        .catch(error =>{
+            res.send(error)
+        })*/
+        products.findAll()
+        .then(camisetas => {
+            res.render(path.resolve(__dirname, '..', 'views', 'admin', 'productAdmin'),{camisetas})
+        })
+        .catch(error =>{
+            res.send(error)
+        })
     },
-    create: (req, res) =>{
-        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'categorys.json')));
-        let ligas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'leagues.json')));
+    create: async (req, res) => {
+        //NO FUNCIONA (no para de cargar y nunca se renderiza la vista)
 
-        res.render(path.resolve(__dirname, '..','views','admin','productAdd'),{categorias, ligas});
+        const categorias = await categorys.findAll();
+        const ligas = await leagues.findAll();
+        const marcas = await brands.findAll();
+        const temporadas = await seasons.findAll();
+
+            res.render(path.resolve(__dirname, '..','views','admin','productAdd'),{categorias, ligas, marcas, temporadas})
+        
+        /*let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'categorys.json')));
+        let ligas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'leagues.json')));
+*/
+ //       res.render(path.resolve(__dirname, '..','views','admin','productAdd'),{categorias, ligas});
     },
     save: (req,res)=>{
-        let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json'), {
+       /* let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json'), {
             encoding: 'utf-8'}));
 
-        
         let ultimaCamiseta = camisetas.pop();
-        camisetas.push(ultimaCamiseta);
-        
-        let nuevoProducto={
-            id: ultimaCamiseta.id + 1,
+        camisetas.push(ultimaCamiseta);*/
+        let _body = {
             title: req.body.title,
-            category: req.body.category,
-            league: req.body.league,
-            brand: req.body.brand,
-            season: req.body.season,
+            categorys_id: req.body.category,
+            leagues_id: req.body.league,
+            brands_id: req.body.brand,
+            seasons_id: req.body.season,
             price: req.body.price,
             stock: req.body.stock,
-            image: req.file ? req.file.filename : '',
+            image: req.file.filename
         };
-            camisetas.push(nuevoProducto);
+        products.create(_body)
+        .then(camiseta => {
+            res.redirect('/productAdmin')
+        })
+        .catch(error => res.send(error));
+           /* camisetas.push(nuevoProducto);
             let nuevoProductoGuardar = JSON.stringify(camisetas,null,2)
-            fs.writeFileSync(path.resolve(__dirname,'..','data','camisetas.json'), nuevoProductoGuardar);
-            res.redirect('/productAdmin');
+            fs.writeFileSync(path.resolve(__dirname,'..','data','camisetas.json'), nuevoProductoGuardar);*/
+        
     },
-    show: (req,res)=>{
+    show: async (req,res)=>{
+        /* CON JSON
         let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
         let miCamiseta;
         camisetas.forEach(camiseta => {
-           if(camiseta.id == req.params.id){
+           if(camiseta.id == req.pams.id){
                miCamiseta = camiseta;         
             }
-        });
-        res.render(path.resolve(__dirname, '..','views','productos','productDetail'), {miCamiseta})
+        });*/
+        const categorias = await categorys.findAll();
+        const ligas = await leagues.findAll();
+        const marcas = await brands.findAll();
+        const temporadas = await seasons.findAll();
+
+        const miCamiseta = await products.findByPk(req.params.id)
+        
+        res.render(path.resolve(__dirname, '..','views','productos','productDetail'), {miCamiseta, categorias, ligas, marcas, temporadas})
+        
+
     
     },
     destroy: (req,res)=>{
-        let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
+        products.destroy({
+            where: {
+                id : req.params.id
+            }
+        })
+        .then(res.redirect('/productAdmin'))
+        .catch(error => res.send(error))
+
+        /*let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
         const camisetaDeleteId = req.params.id;
         const camisetasFinal = camisetas.filter(camiseta=> camiseta.id != camisetaDeleteId);
         let camisetasGuardar = JSON.stringify(camisetasFinal,null,2)
-        fs.writeFileSync(path.resolve(__dirname,'..','data','camisetas.json'), camisetasGuardar);
-        res.redirect('/productAdmin');
+        fs.writeFileSync(path.resolve(__dirname,'..','data','camisetas.json'), camisetasGuardar);*/
     },
-    edit: (req,res)=>{
+    edit: async (req,res)=>{
+        /*
         let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
         let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'categorys.json')));
         let ligas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'leagues.json')));
-        const camisetasId = req.params.id;
-        let camisetaEditar = camisetas.find(camiseta=> camiseta.id == camisetasId);
-        res.render(path.resolve(__dirname, '..','views','admin','productEdit'), {camisetaEditar,categorias,ligas});
+        const camisetasId = req.params.id;*/
+
+        //let camisetaEditar = camisetas.find(camiseta=> camiseta.id == camisetasId);
+
+        const categorias = await categorys.findAll();
+        const ligas = await leagues.findAll();
+        const marcas = await brands.findAll();
+        const temporadas = await seasons.findAll();
+
+        products.findByPk(req.params.id)
+        .then(camisetaEditar =>{
+            res.render(path.resolve(__dirname, '..','views','admin','productEdit'), {camisetaEditar, categorias, ligas, marcas, temporadas})})
+        .catch(error => res.send(error));
     },
     update: (req,res) =>{
+        /*
         let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
         req.body.id = req.params.id;
         req.body.imagen = req.file ? req.file.filename : req.body.oldImagen;
@@ -75,7 +137,23 @@ module.exports = {
             return camiseta;
         });
         let camisetasActualizar = JSON.stringify(camisetasUpdate,null,2)
-        fs.writeFileSync(path.resolve(__dirname,'..','data','camisetas.json'), camisetasActualizar);
-        res.redirect('/productAdmin');
+        fs.writeFileSync(path.resolve(__dirname,'..','data','camisetas.json'), camisetasActualizar)*/
+        products.update({
+            title: req.body.title,
+            categorys_id: req.body.category,
+            leagues_id: req.body.league,
+            brands_id: req.body.brand,
+            seasons_id: req.body.season,
+            price: req.body.price,
+            stock: req.body.stock,
+            image: req.file.filename
+        },{
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(
+        res.redirect('/productAdmin'))
+        .catch(error => res.send(error))
     }
 }

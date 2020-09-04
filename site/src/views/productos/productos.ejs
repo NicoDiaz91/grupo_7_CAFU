@@ -12,105 +12,105 @@
     <h1 class="text-center">Todas las Ligas</h1>
     <h3 class="text-center">Superliga Argentina</h3>
     <section class="row w-100">
-      <% for(let i = 0; i < camisetas.length; i++){ %>
-      <% if(camisetas[i].league == "Argentina"){ %>
+      <% camisetas.forEach(camiseta => { %>
+      <% if(camiseta.leagues_id == 1 ){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/img/<%= camisetas[i].image %>" class="card-img-top" alt="...">
+          <img src="/img/<%= camiseta.image %>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
-          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camiseta.title %> $ <%= camiseta.price %></h5>
+          <a href="/productDetail/<%= camiseta.id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camiseta.id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% }%>
-      <% } %>
+      <% }) %>
     </section>
     <h3 class="text-center">Premier League</h3>
     <section class="row w-100">
-      <% for(let i = 0; i < camisetas.length; i++){ %>
-      <%if(camisetas[i].league == "Inglaterra"){ %>
+      <% camisetas.forEach(camiseta => { %>
+      <%if(camiseta.leagues_id == 5){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/img/<%= camisetas[i].image %>" class="card-img-top" alt="...">
+          <img src="/img/<%= camiseta.image %>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
-          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camiseta.title %> $ <%= camiseta.price %></h5>
+          <a href="/productDetail/<%= camiseta.id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camiseta.id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% } %>
-      <% } %>
+      <% }) %>
     </section>
     <h3 class="text-center">Serie A</h3>
     <section class="row w-100">
-      <% for(let i = 0; i < camisetas.length; i++){ %>
-      <%if(camisetas[i].league == "Italia"){ %>
+      <% camisetas.forEach(camiseta =>{ %>
+      <%if(camiseta.leagues_id == 2 ){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/img/<%= camisetas[i].image %>" class="card-img-top" alt="...">
+          <img src="/img/<%= camiseta.image %>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
-          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camiseta.title %> $ <%= camiseta.price %></h5>
+          <a href="/productDetail/<%= camiseta.id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camiseta.id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% } %>
-      <% } %>
+      <% }) %>
     </section>
     <h3 class="text-center">La Liga ESP</h3>
     <section class="row w-100">
-      <% for(let i = 0; i < camisetas.length; i++){ %>
-      <%if(camisetas[i].league == "España"){ %>
+      <% camisetas.forEach(camiseta => { %>
+      <%if(camiseta.leagues_id == 3){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
+          <img src="/img/<%=camiseta.image%>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
-          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camiseta.title %> $ <%= camiseta.price %></h5>
+          <a href="/productDetail/<%= camiseta.id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camiseta.id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% } %>
-      <% } %>
+      <% }) %>
     </section>
     <h3 class="text-center">Bundesliga</h3>
     <section class="row w-100">
-      <% for(let i = 0; i < camisetas.length; i++){ %>
-      <%if(camisetas[i].league == "Alemaña"){ %>
+      <% camisetas.forEach(camiseta => { %>
+      <%if(camiseta.leagues_id == 4){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
+          <img src="/img/<%=camiseta.image%>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
-          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camiseta.title %> $ <%= camiseta.price %></h5>
+          <a href="/productDetail/<%= camiseta.id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camiseta.id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% } %>
-      <% } %>
+      <% }) %>
     </section>
     <h3 class="text-center">Mundiales</h3>
     <section class="row w-100">
-      <% for(let i = 0; i < camisetas.length; i++){ %>
-      <%if(camisetas[i].league == "Mundiales"){ %>
+      <% camisetas.forEach(camiseta => { %>
+      <%if(camiseta.leagues_id == 7){ %>
       <article class="card col-12 col-md-6 col-lg-3">
         <figure>
-          <img src="/img/<%=camisetas[i].image%>" class="card-img-top" alt="...">
+          <img src="/img/<%=camiseta.image%>" class="card-img-top" alt="...">
         </figure>
         <div class="card-body">
-          <h5 class="card-title"><%= camisetas[i].title %> $ <%= camisetas[i].price %></h5>
-          <a href="/productDetail/<%= camisetas[i].id %>" class="btn btn-primary">Detalle del Producto</a>
-          <a href="/productCart/<%= camisetas[i].id %>" class="btn btn-primary">Comprar</a>
+          <h5 class="card-title"><%= camiseta.title %> $ <%= camiseta.price %></h5>
+          <a href="/productDetail/<%= camiseta.id %>" class="btn btn-primary">Detalle del Producto</a>
+          <a href="/productCart/<%= camiseta.id %>" class="btn btn-primary">Comprar</a>
         </div>
       </article>
       <% } %>
-      <% } %>
+      <% }) %>
     </section>
   </main>
 

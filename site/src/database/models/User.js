@@ -1,39 +1,78 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 
-    const User = sequelize.define('Users', {
-        id:{
+    let alias = 'users';
+
+    let cols = {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+            allowNull: false
         },
-        firstName:{
+        firstName: {
             type: DataTypes.STRING,
+            allowNull: false
         },
-        lastName:{
+        lastName: {
             type: DataTypes.STRING,
+            allowNull: false
         },
-        email:{
+        email: {
             type: DataTypes.STRING,
+            allowNull: false
         },
-        password:{
+        password: {
             type: DataTypes.STRING,
+            allowNull: false
         },
-        image_id: {
+        images_id: {
             type: DataTypes.INTEGER,
+            allowNull: false
         },
-        role_id: {
+        roles_id: {
             type: DataTypes.INTEGER,
+            allowNull: false
         },
-        country_id: {
+        countrys_id: {
             type: DataTypes.INTEGER,
+            allowNull: false
         },
-        province_id: {
+        provinces_id: {
             type: DataTypes.INTEGER,
+            allowNull: false
         }
-  }, {});
-  user.associate = function(models) {
-    // associations can be defined here
-  };
-  return User;
+    };
+
+    let config = {
+        tableName: 'users',
+        timestamp: false
+    };
+
+    const users = sequelize.define(alias, cols, config);
+
+    users.associate = function (models) {
+        users.belongsTo(models.images ,{
+            as:'images',
+            foreignKey: 'images_id'
+        })
+        users.belongsTo(models.roles, {
+            as:'roles',
+            foreignKey: 'roles_id'
+        })
+        users.belongsTo(models.countrys, {
+            as:'countrys',
+            foreignKey: 'countrys_id'
+        })
+        users.belongsTo(models.provinces, {
+            as:'provinces',
+            foreignKey: 'provinces_id'
+        })
+        users.belongsTo(models.carts ,{
+            as: 'carts',
+            foreignKey: 'users_id'
+        })
+    }
+
+    return users;
 };
