@@ -16,9 +16,13 @@ const {
   body
 } = require('express-validator');
 
+const db = require('../database/models');
+
+const {users} = require('../database/models')
+
 const controllersUser = require(path.resolve(__dirname, '../controllers/controllersUser'));
 
-let archivoUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/users.json')))
+//JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/users.json')))
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -33,7 +37,7 @@ const upload = multer({ storage })
 
 router.get('/registro', controllersUser.register);
 
-router.post('/registro', upload.single('avatar'), [
+router.post('/registro', upload.single('images'), [
   check('firstName').isLength({
     min: 1
   }).withMessage('Nombre está vacío'),
@@ -43,8 +47,8 @@ router.post('/registro', upload.single('avatar'), [
   check('email').isEmail().withMessage('Agregar un email válido'),
 
   body('email').custom((value) => {
-    for (let i = 0; i < archivoUsers.length; i++) {
-      if (archivoUsers[i].email == value) {
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].email == value) {
         return false
       }
     }
@@ -61,7 +65,7 @@ router.post('/registro', upload.single('avatar'), [
     }
   }).withMessage('Las contraseñas deben ser iguales'),
 
-  body('avatar').custom((value, { req }) => {
+  body('images').custom((value, { req }) => {
     if (req.file != undefined) {
       return true
     }
@@ -72,28 +76,55 @@ router.post('/registro', upload.single('avatar'), [
 router.get('/login', controllersUser.index);
 
 router.post('/login', [
+  /*
   check('email').isEmail().withMessage('Agregar un email válido'),
   body('email').custom((value) => {
-    for (let i = 0; i < archivoUsers.length; i++) {
-      if (archivoUsers[i].email == value) {
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].email == value) {
 
         return true
       }
     }
-    return false
+    return true
   }).withMessage('Usuario no se encuentra registrado...'),
   check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener un mínimo de 8 caractéres'),
   body('password').custom((value, { req }) => {
-    for (let i = 0; i < archivoUsers.length; i++) {
-      if (archivoUsers[i].email == req.body.email) {
-        if (bcrypt.compareSync(value, archivoUsers[i].password)) {
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].email == req.body.email) {
+        if (bcrypt.compareSync(value, users[i].password)) {
           return true
         } else {
           return false
         }
       }
     }
-  }).withMessage('Contraseña no coinciden...')
+  }).withMessage('Contraseña no coinciden...')*/
+  
+  check('email').isEmail().withMessage('Ingrese un mail válido.'),
+  check('email').not().isEmpty().withMessage('El campo email no puede estar vacío'),
+  body('email').custom( async (value) =>{
+    let user = await users.findOne({
+      where: {email: value}
+    })
+    if (user === null){
+      return Promise.reject('El usuario no se encuentra registrado')
+    } 
+    return true
+  }),
+  check('password').isLength({min:8}).withMessage('La contraseña debe tener un mínimo de 8 caracteres.'),
+  check('password').not().isEmpty().withMessage('El campo contraseña no puede estar vacío'),
+  body('password').custom( async (value, {req}) => {
+    let user = await users.findOne({
+      where: {email: req.body.email}
+    })
+    //console.log(bcrypt.compareSync(value, user.password))
+    if(bcrypt.compareSync(value, user.password)){
+      return true
+    } else {
+      return Promise.reject('La contraseña es incorrecta')
+      //return false
+    }
+  })//.withMessage('Contraseña incorrecta')
 
 ], controllersUser.ingresar);
 

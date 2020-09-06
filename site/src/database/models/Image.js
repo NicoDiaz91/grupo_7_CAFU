@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
 
   let cols = {
         id:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
@@ -23,12 +23,6 @@ module.exports = (sequelize, DataTypes) => {
 
   const images = sequelize.define(alias, cols, config);
   
-  images.associate = function (models){
-    images.hasOne(models.users,{
-      as: 'users',
-      foreignKey: 'images_id'
-    })
-  };
 
   return images;
 };
