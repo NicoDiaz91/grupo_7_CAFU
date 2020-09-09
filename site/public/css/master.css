@@ -3,11 +3,7 @@
 }
 
 main{
-    background-color: darkgrey;
-}
-
-.jumbotron{
-    background-color: darkgrey;
+    background-color: rgb(233, 236, 239) ;
 }
 
 .btn{
@@ -119,4 +115,19 @@ main{
     .carousel-content{
         top: 70%;
     }   
+}
+
+@media (max-width: 767px){
+    .back{
+        background: url('../img/equipacion-visitante-del-chelsea-para-la-temporada-2020-21--twitter-chelseafc.jpg'); 
+        -webkit-background-size: cover; 
+        -moz-background-size: cover; 
+        -o-background-size: cover; 
+        background-size: cover;
+        height: 100%;
+    }
+    .color{
+        color: rgb(233, 236, 239);
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.6);
+    }
 }

@@ -1,15 +1,8 @@
-
-
-body{
-    background-color: darkgrey;
+*{
     font-family: 'Archivo', sans-serif;
-
 }
 main{
-    background-color: darkgrey;
-    font-family: 'Archivo', sans-serif;
-
-
+    background-color: rgb(255, 255, 255) ;
 }
 h1{
     margin-top: 5%;
@@ -21,10 +14,15 @@ h3{
     margin: 0;
 }
 ​.card{
-    background-color: darkgray;
     padding: 0;
     border: 1%;
 }
 figure{
     height:70%
+}
+
+@media (max-width: 650px){
+    .escala{
+        width: 80%;
+    }
 }
