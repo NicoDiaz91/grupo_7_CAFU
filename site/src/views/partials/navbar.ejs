@@ -12,6 +12,7 @@
         <li class="nav-item active align-self-lg-start">
           <a class="nav-link" href="/productos">SHOP <span class="sr-only">(current)</span></a>
         </li>
+        <% if(user.roles_id == null){ %>
         <li class="nav-item align-self-lg-end izquierda">
           <a class="nav-link" href="/login">
             <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor"
@@ -23,6 +24,7 @@
             </svg>
           </a>
         </li>
+        <% } %>
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
             aria-controls="collapseExample">
@@ -48,9 +50,20 @@
             </svg>
           </a>
         </li>
+        <% if(user.roles_id == 9){ %>
         <li class="nav-item active align-self-lg-start">
           <a class="nav-link" href="/productAdmin">ADD<span class="sr-only">(current)</span></a>
         </li>
+        <% } %>
+        <%if(user.roles_id != null){ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout" id="logout">
+            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-door-closed-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4 1a1 1 0 0 0-1 1v13H1.5a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2a1 1 0 0 0-1-1H4zm2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            </svg>
+          </a>
+        </li>
+        <% } %>
       </ul>
     </div>
   </nav>

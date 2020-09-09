@@ -1,6 +1,10 @@
 body{
     background-color: gray;
 }
+main{
+    background-color: darkgrey;
+
+}
 
 .row{
     margin: 0;

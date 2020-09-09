@@ -4,16 +4,22 @@
     box-sizing: border-box;
     font-family: 'Archivo', sans-serif;
 
+
 }
 body{
     overflow-x: hidden;
     height: 100vh;
     width: 100vw;
+    background-color: darkgrey!important;
+
+}
+main{
+    background-color: darkgrey;
 }   
 
 .containter{
     display: flex;
-    background-color: blueviolet;
+    background-color: darkgrey!important;
     height: 60vh;
     flex-wrap: wrap;
     }

@@ -17,9 +17,9 @@
     <div class="col-8 mx-auto bg-light ">
       <% if(typeof(errors) != 'undefined'){%>
       <ul class="alert alert-danger">
-        <% errors.forEach(error => { %>
-        <li><%= error.msg%></li>
-        <%});%>
+        
+        <li><%= errors.msg%></li>
+       
       </ul>
       <%}%>
     <div class="">
@@ -49,7 +49,7 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
-        <select name="country" id="pais" class="form-control">
+        <select name="country" id="paises" class="form-control">
           <option selected>Seleccione pais</option>
           <% paises.forEach(pais=> { %>
           <option value="<%= pais.id%>"><%= pais.name %></option>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--Head-->
 <%- include('../partials/head.ejs') %>
-<link rel="stylesheet" href="css/productAdd.css">
+<link rel="stylesheet" href="css/productAdd">
 </head>
 
 <body>
@@ -17,14 +17,18 @@
         class="w-100">
         <article class="col-12 d-flex flex-column justify-content-center">
           <input type="text" name="title" class="w-100 text-center"
-            placeholder="Indique el nombre del club al cual corresponda la nueva camiseta">
+            placeholder="<%= camisetaEditar.title %>">
           </div>
           <!--Categoría-->
           <div class="card shadow p-3 mb-3 bg-white bg-light alto">
             <h5 class="card-title text-center">CATEGORÍA</h5>
             <div class="d-flex justify-content-center flex-wrap form-group">
               <select name="category" id="" class="form-control">
-                <option selected>Seleccione una categoria</option>
+                <% categorias.forEach(cat =>{ %>
+                <% if(cat.id == camisetaEditar.categorys_id){ %>
+                  <option selected value="<%= cat.id %>"><%= cat.name %></option>
+                  <% } %>
+                <% }) %>
                 <% categorias.forEach(categoria => { %>
                 <option value="<%= categoria.id %>"><%= categoria.name %></option>
                 <% }) %>
@@ -38,7 +42,11 @@
               <div class="col-md-3 mb-2 ubicacion">
                 <label for="validationDefault04 align-self-start">LIGA</label>
                 <select class="custom-select form-control" id="validationDefault04" name="league" required>
-                  <option selected disabled value="">Elegir...</option>
+                  <% ligas.forEach(lig =>{ %>
+                  <% if(lig.id == camisetaEditar.leagues_id){ %>
+                    <option selected value="<%= lig.id %>" ><%= lig.name %></option>
+                  <% } %>
+                  <% }) %>
                   <% ligas.forEach(liga => { %>
                   <option value="<%= liga.id %>"><%= liga.name %></option>
                   <% }) %>
@@ -47,7 +55,11 @@
               <div class="col-md-3 mb-2 ubicacion">
                 <label for="validationDefault04">MARCA</label>
                 <select class="custom-select" id="validationDefault04" name="brand" required>
-                  <option selected disabled value="">Elegir...</option>
+                  <% marcas.forEach(mark =>{ %>
+                  <% if(mark.id == camisetaEditar.brands_id){ %>
+                    <option selected value="<%= mark.id %>" ><%= mark.name %></option>
+                  <% } %>
+                  <% }) %>
                   <% marcas.forEach(marca=>{ %>
                     <option value="<%= marca.id %>"><%= marca.name %></option>
                   <% }) %>
@@ -56,7 +68,11 @@
               <div class="col-md-3 mb-2 ubicacion">
                 <label for="validationDefault04">TEMPORADA</label>
                 <select class="custom-select" id="validationDefault04" name="season" required>
-                  <option selected value="">Elegir...</option>
+                  <% temporadas.forEach(temp =>{ %>
+                    <% if(temp.id == camisetaEditar.seasons_id){ %>
+                      <option selected value="<%= temp.id %>"><%= temp.name %></option>
+                  <% } %>
+                  <% }) %>
                   <% temporadas.forEach(temporada => { %>
                   <option value="<%= temporada.id %>"><%= temporada.name %></option>
                   <% }) %>
@@ -69,11 +85,11 @@
             <div class="justify-content-center d-flex flex-md-row flex-lg-row">
               <label>Stock</label>
               <div class="col-md-3 mb-2">
-                <input type="number" name="stock" value="">
+                <input type="number" name="stock" value="" placeholder="<%= camisetaEditar.stock %>">
               </div>
               <label>Precio</label>
               <div class="col-md-3 mb-2">
-                $<input type="number" name="price" value="">
+                $<input type="number" name="price" value="" placeholder="<%= camisetaEditar.price %>">
               </div>
             </div>
           </div>

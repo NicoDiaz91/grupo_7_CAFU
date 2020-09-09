@@ -100,7 +100,7 @@ router.post('/login', [
     }
   }).withMessage('Contraseña no coinciden...')*/
   
-  check('email').isEmail().withMessage('Ingrese un mail válido.'),
+  /*check('email').isEmail().withMessage('Ingrese un mail válido.'),
   check('email').not().isEmpty().withMessage('El campo email no puede estar vacío'),
   body('email').custom( async (value) =>{
     let user = await users.findOne({
@@ -121,11 +121,27 @@ router.post('/login', [
     if(bcrypt.compareSync(value, user.password)){
       return true
     } else {
-      return Promise.reject('La contraseña es incorrecta')
+      return true
       //return false
     }
-  })//.withMessage('Contraseña incorrecta')
-
+  })//.withMessage('Contraseña incorrecta')*/
+  body('email').custom((value, {req}) => {
+    return users.findOne({where:{email:value}}).then(user => {
+      if (user && bcrypt.compareSync(req.body.password,user.password)) {
+        return true;            
+        } else{
+        return true//Promise.reject('Credenciales Inválidas');
+        }
+    });
+         
+  }),
+  check('email').isLength({
+      min: 1
+    }).withMessage('El campo nombre no puede estar vacío'),
+  check('password').isLength({
+      min: 1
+    }).withMessage('El campo password no puede estar vacío'),
+ 
 ], controllersUser.ingresar);
 
 

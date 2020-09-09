@@ -18,7 +18,7 @@ const upload = multer({ storage })
 const controllersProductos = require(path.resolve(__dirname, '../controllers/controllersProductos'));
 
 router.get('/productos', controllersProductos.index );
-router.get('/productCart/:id?', controllersProductos.cart );
+router.get('/productCart', controllersProductos.cart );
 
 
 module.exports = router;

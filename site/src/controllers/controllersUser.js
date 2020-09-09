@@ -23,34 +23,35 @@ module.exports = {
   },
   create: (req, res) => {
     let errors = validationResult(req);
-    if (!errors.isEmpty()) {
+    if (errors.isEmpty()) {
       //return res.send(errors.mapped())
-      return res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'registro'), {
-        errors: errors.mapped(), old: req.body
-      });
-    } else {
-
-      /*let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/users.json'), {
-        encoding: 'utf-8'}))
-      let ultimoUser = users.pop()
-      users.push(ultimoUser);*/
-
       let user = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 8),
+        password: bcrypt.hashSync(req.body.password, 10),
         provinces_id: req.body.province,
         countrys_id: req.body.country,
         images: req.file.filename,
         roles_id: 1
       }
+      
 
       users.create(user)
-        .then(users => {
-          res.redirect('/login');
-        })
-        .catch(error => res.send(error))
+      .then(resultado =>{
+        res.redirect('/login')
+      })
+      .catch(e=> res.send(e))
+
+    } else {
+      return res.render(path.resolve(__dirname, '..', 'views', 'user', 'register'), {
+        errors: errors.mapped(), old: req.body,countrys
+      });
+      /*let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/users.json'), {
+        encoding: 'utf-8'}))
+      let ultimoUser = users.pop()
+      users.push(ultimoUser);*/
+
       /*users.push(user);
       usersJSON = JSON.stringify(users, null, 2);
       fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), usersJSON);
@@ -68,7 +69,7 @@ module.exports = {
   ingresar: async (req, res) => {
 
     let errors = validationResult(req);
-    if(!errors.isEmpty()){
+    if (errors.isEmpty()) {
 
       /*let archivoUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/users.json')));
       let usuarioLogueado = users.find(usuario => usuario.email == req.body.email)
@@ -77,20 +78,41 @@ module.exports = {
       if (req.body.recordarme) {
         res.cookie('email', usuarioLogueado.email, { maxAge: 1000 * 60 * 60 * 24 })}
       res.redirect('/');*/
-        //return res.send(errors.mapped())
-        return res.render(path.resolve(__dirname, '..', 'views', 'user', 'login'), {
-            errors: errors.mapped(),  old: req.body});
+      //return res.send(errors.mapped())
+
+      /*let usuarioLogueado = await users.findOne({where: {email: req.body.email}})
+       
+       delete usuarioLogueado.password;
+       req.session.usuario = usuarioLogueado;
+       //return res.send (req.session.usuario)
+       if(req.body.recordarme){
+           res.cookie('email', usuarioLogueado.email, {maxAge: 1000 * 60 * 60 * 48})
+           res.redirect('/');
+       } else{
+       
+       return res.render(path.resolve(__dirname, '..', 'views', 'user', 'login'), {
+         errors: errors.mapped(),  old: req.body});
+       }*/
+      users.findOne({ where: { email: req.body.email } })
+        .then(user => {
+          let userLogueado = user;
+          delete userLogueado.password;
+          req.session.user = userLogueado;
+          //console.log('asdasd' + req.body.rememberme);
+          if (req.body.rememberme) {
+            //Crear la cookie de ese usuario
+            res.cookie('email', userLogueado.email, { maxAge: 1000 * 60 * 60 * 24 })
+            //console.log('asdasd' + ' ' +req.cookies.email);
+          }
+          res.redirect('/');
+        })
+        .catch(error => res.send(error));
     } else {
-        let usuarioLogueado = await users.findOne({where: {email: req.body.email}})
-        delete usuarioLogueado.password;
-        req.session.usuario = usuarioLogueado;
-        //return res.send (req.session.usuario)
-        if(req.body.recordarme){
-            res.cookie('email', usuarioLogueado.email, {maxAge: 1000 * 60 * 60 * 48})
-        }
-        res.redirect('/');
-  }
-},
+      res.render(path.resolve(__dirname, '../views/user/login'), {
+        errors: errors.mapped(), old: req.body
+      })
+    }
+  },
   logout: (req, res) => {
     req.session.destroy();
     res.cookie('email', null, { maxAge: -1 });

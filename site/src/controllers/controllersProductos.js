@@ -16,16 +16,16 @@ module.exports = {
         res.render(path.resolve(__dirname, '..', 'views', 'productos', 'productos'),{camisetas})})
         .catch(error => res.send(error))
     },
-    cart: function (req, res){
-        /*
-        let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
-        let miCamiseta;
-        camisetas.forEach(camiseta => {
+    cart: (req, res)=> {
+        
+        
+        //let camisetas =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','camisetas.json')));
+        products.findAll(camiseta=>{
             if(camiseta.id == req.params.id){
                 miCamiseta = camiseta;         
             }
-        });*/
-        res.render(path.resolve(__dirname, '..','views','productos','productCart'), {miCamiseta})
-        
-    }
+        })
+        .then(resultado => res.render(path.resolve(__dirname, '..','views','productos','productCart'), {miCamiseta})
+        .catch(e => res.send(e)))
+    }   
 }

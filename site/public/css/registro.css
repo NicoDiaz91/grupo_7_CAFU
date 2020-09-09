@@ -1,12 +1,22 @@
 *{
     font-family: 'Archivo', sans-serif;
- }    
+ }
+ body{
+     background-color: darkgrey;
+ }
+ main{
+     background-color: darkgrey;
+ }
 h1{
     margin-top: 10%;
 }
 #container{      
      text-align: center;
 }
+.bg-light{
+    background-color: darkgrey!important;
+}
+
 .signup-form{
     margin: 0;
     padding: 0;

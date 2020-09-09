@@ -1,9 +1,15 @@
-*{
-    font-family: 'Archivo', sans-serif;
-}
+
 
 body{
     background-color: darkgrey;
+    font-family: 'Archivo', sans-serif;
+
+}
+main{
+    background-color: darkgrey;
+    font-family: 'Archivo', sans-serif;
+
+
 }
 h1{
     margin-top: 5%;

@@ -3,7 +3,11 @@
 }
 
 main{
-    background-color: rgb(233, 236, 239) ;
+    background-color: darkgrey;
+}
+
+.jumbotron{
+    background-color: darkgrey;
 }
 
 .btn{
